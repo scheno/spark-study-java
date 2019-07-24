@@ -33,11 +33,12 @@ public class WordCountCluster {
 		// 5、执行spark-submit脚本，提交spark应用到集群执行
 		
 		SparkConf conf = new SparkConf()
-				.setAppName("WordCountCluster");  
+				.setAppName("WordCountCluster")
+				.setMaster("local");
 		
 		JavaSparkContext sc = new JavaSparkContext(conf);
 
-		JavaRDD<String> lines = sc.textFile("hdfs://spark1:9000/spark.txt");
+		JavaRDD<String> lines = sc.textFile("hdfs://localhost:9000/data/wordcount/spark.txt");
 		
 		JavaRDD<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
 			
