@@ -18,7 +18,8 @@ public class HDFSFile {
 		// 创建SparkConf
 		// 修改：去除setMaster()设置，修改setAppName()
 		SparkConf conf = new SparkConf()
-				.setAppName("HDFSFile"); 
+				.setAppName("HDFSFile")
+				.setMaster("local");
 		// 创建JavaSparkContext
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		

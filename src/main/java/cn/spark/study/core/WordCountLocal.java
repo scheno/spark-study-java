@@ -1,6 +1,7 @@
 package cn.spark.study.core;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -66,8 +67,8 @@ public class WordCountLocal {
 			
 			private static final long serialVersionUID = 1L;
 
-			public Iterable<String> call(String line) throws Exception {
-				return Arrays.asList(line.split(" "));  
+			public Iterator<String> call(String line) throws Exception {
+				return Arrays.asList(line.split(" ")).iterator();
 			}
 			
 		});
